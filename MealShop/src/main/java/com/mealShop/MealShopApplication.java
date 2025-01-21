@@ -1,4 +1,4 @@
-package com.mealShop.controller;
+package com.mealShop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
