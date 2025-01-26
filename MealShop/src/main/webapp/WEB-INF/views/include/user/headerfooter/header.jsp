@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>header</title>
+<title>밀키트 판매사이트</title>
 <link href="user/css/meal.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -15,22 +15,6 @@
 <script src="user/script/member.js"></script>
 <script src="user/script/product.js"></script>
 <script src="user/script/mypage.js"></script>
-<script>
-/* result 값에 따른 처리 결과 메시지 ( String true/false 파라미터로 구분 ) */
-<%
-	// System.out.println("result : " + request.getAttribute("result"));
-	//String result = (String)request.getAttribute("result");
-	//if("true".equals(result)) {
-%>
-	//alert("정상적으로 처리되었습니다.");
-<%
-	//}else if("false".equals(result)){
-%>
-	//alert("처리에 실패했습니다.\n관리자에게 문의하세요.");
-<%	
-	//}else{ }
-%>
-</script>
 
 <!-- Ajax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -109,9 +93,6 @@
 					<form method="post" name="formm" onsubmit="return false;">
 						<span><input type="text" name="key" id="key" placeholder="검색어를 입력해주세요" class="search_word" value="${key}" onkeyup="enterkey();"></span>
 						<span class="material-icons" id="productSearchIcon" name="search" onClick="go_search('productAllForm');">search</span>
-						<!--  <span><img src="images/search.jpg" class="search" onclick="search();"/></span>-->
-						<!-- onClick="go_search('adminProductList');" -->
-						<!-- onclick="location.href='#'" -->
 					</form>
 				</div>
 			</div>
