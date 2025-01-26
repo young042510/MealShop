@@ -317,8 +317,8 @@ tr{width:640px; height:49px;}
 #form2 #label {width: 140px; text-align:left; margin: 5px 0; border-left:1px #eee solid; vertical-align:middle; }
 #form2 #th1{color:#666; background:#f8f8f8; width:140px;}
 #form2 #selectBox{ cursor:pointer;}
-#form2 input { float:left; margin: 0px 0; border: 1px solid #C4C7C8;    background-color: #white; }
-
+/* #form2 #input { float:left; margin: 0px 0; border: 1px solid #C4C7C8; background-color: #white; }
+ */
 #form2 #buttons {position:relative; margin: 20px 0 0 0; }
 #form2 .submit, #form2 .cancel {position:relative; height: 40px;   width: 640px;    border: 1px solid #666;
 font-size: 17px; background-repeat: repeat-x; background-position:center; color: #FFFFFF; margin: 0 0 0 20px; background-color:#1AB137;}
