@@ -30,6 +30,6 @@ public class MMemberVO {
 	@NotEmpty(message="전화번호를 입력하세요")
     private String phone;
     private String useyn;
-    private int service;
+    private int service; // 정기배송 
     
 }

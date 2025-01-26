@@ -11,5 +11,60 @@
 		)  }
 	</select>
 	
+	<select id="selectAddressByDong" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL selectAddressByDong_m( 
+			#{dong},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+		)  }
+	</select>
+	
+	<insert id="insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL insertMember_m( 
+		#{id}, #{pwd}, #{name}, #{email}, #{phone}, #{zip_num} , #{address} 
+		) }
+	</insert>
+	
+	<insert id="updateMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL updateMember_m( 
+		#{ID}, #{PWD}, #{NAME}, #{EMAIL}, #{PHONE}, #{ZIP_NUM} , #{ADDRESS}
+		) }
+	</insert>
+	
+	
+	<insert id="updateUseyn" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL updateUseyn_m( 
+		#{id}
+		) }
+	</insert>
+	
+	<select id="getMemberByemail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL getMemberByemail_m( 
+			#{name}, #{email}, 
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+		)  }
+	</select>
+	
+	<select id="getMemberByphone" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL getMemberByphone_m( 
+			#{name}, #{phone}, 
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+		)  }
+	</select>
+	
+	<select id="listMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  CALL listMember_m( 
+			#{key, jdbcType=VARCHAR},
+			#{startNum},
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+		)}
+	</select>
+	
+	<insert id="updateMemberResult" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL updateMemberResult_m( 
+			#{id, jdbcType=VARCHAR},
+			#{selectedIndex, jdbcType=VARCHAR}
+		) }
+	</insert>
 	
 </mapper>

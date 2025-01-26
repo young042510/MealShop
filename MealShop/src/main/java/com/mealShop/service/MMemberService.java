@@ -3,10 +3,13 @@ package com.mealShop.service;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mealShop.dao.IMMemberDao;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 public class MMemberService {
@@ -18,6 +21,41 @@ public class MMemberService {
 		mdao.getMember(paramMap);
 	}
 
+	@Transactional(rollbackFor = Exception.class)
+	public void insertMember(HashMap<String, Object> paramMap) {
+		mdao.insertMember(paramMap);
+	}
+
+	public void selectAddressByDong(HashMap<String, Object> paramMap) {
+		mdao.selectAddressByDong(paramMap);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public void updateMember(HashMap<String, Object> paramMap) {
+		mdao.updateMember(paramMap);
+	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public void updateUseyn(HashMap<String, Object> paramMap) {
+		mdao.updateUseyn(paramMap);
+	}
+
+	public void getMemberByemail(HashMap<String, Object> paramMap) {
+		mdao.getMemberByemail(paramMap);
+	}
+
+	public void getMemberByphone(HashMap<String, Object> paramMap) {
+		mdao.getMemberByphone(paramMap);
+	}
+
+	public void listMember(HashMap<String, Object> paramMap) {
+		mdao.listMember(paramMap);
+	}
+
+	public void updateMemberResult(HashMap<String, Object> paramMap) {
+		mdao.updateMemberResult(paramMap);
+		
+	}
 	
 	
 }
