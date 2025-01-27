@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.mealShop.dao.IMProductDao">
+	<resultMap type="java.util.HashMap" id="productMap"/>
+
+	<!-- void getNewBestProduct(HashMap<String, Object> paramMap); -->
+	<select id="getNewBestProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getNewBestProduct_m(
+			#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap},
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- void getAllCount(HashMap<String, Object> paramMap); -->
+	<select id="getAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getAllCount_m(
+			#{key},
+			#{cnt, mode=OUT, jdbcType=INTEGER}
+		)}
+	</select>
+	
+	<!-- void getalow(HashMap<String, Object> paramMap);-->
+	<select id= "getalow" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getalow_m(
+			#{startNum},
+			#{endNum},
+			#{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+		
+	<!-- void getahight(HashMap<String, Object> paramMap); -->
+	<select id="getahight" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getahight_m(
+			#{startNum},
+			#{endNum},
+			#{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- void listProduct(HashMap<String, Object> paramMap); -->
+	<select id="listProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL listProduct_m(
+			#{startNum},
+			#{endNum},
+			#{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 상품 카테고리별 정렬 9개 -->
+	<!-- 베스트상품 낮은순 조회 void getBlow(HashMap<String, Object> paramMap);-->
+	<select id="getBlow" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getBLow_m(
+			#{startNum},
+			#{endNum},
+			#{bestyn},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 베스트상품 높은순 조회 void getBHight(HashMap<String, Object> paramMap); -->
+	<select id="getBHight" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getBHight_m(
+			#{startNum},
+			#{endNum},
+			#{bestyn},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 베스트상품 최신순 조회 void getBest(HashMap<String, Object> paramMap); -->
+	<select id="getBest" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getBest_m(
+			#{startNum},
+			#{endNum},
+			#{bestyn},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 신상제품 가격낮은순 조회 void getNewLow(HashMap<String, Object> paramMap); -->
+	<select id="getNewLow" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getNewLow_m(
+			#{startNum},
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 신상제품 가격높은순 조회 void getNewHight(HashMap<String, Object> paramMap); -->
+	<select id="getNewHight" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getNewHight_m(
+			#{startNum},
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 신상제품 최신순 조회 void getNewList(HashMap<String, Object> paramMap); -->
+	<select id="getNewList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getNewList_m(
+			<!-- #{key}, -->
+			#{startNum},
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 한중양 카테고리 가격 낮은순 조회 void getLow(HashMap<String, Object> paramMap); -->
+	<select id="getLow" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getLow_m(
+			#{startNum},
+			#{endNum},
+			#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 한중양 카테고리 가격 높은순 조회 void getHight(HashMap<String, Object> paramMap); -->
+	<select id="getHight" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getHight_m(
+			#{startNum},
+			#{endNum},
+			#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 한중양 카테고리 최신순 조회 void getKind(HashMap<String, Object> paramMap); -->
+	<select id="getKind" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getKind_m(
+			#{startNum},
+			#{endNum},
+			#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 상품 디테일 조회 void getProduct(HashMap<String, Object> paramMap);-->
+	<select id="getProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getProduct_m(
+			#{pseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 상품 디테일 조회 이미지 void getImages(HashMap<String, Object> paramMap); -->
+	<select id="getImages" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getImages_m(
+			#{pseq},
+			#{ref_cursor_Image1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap},
+			#{ref_cursor_Image2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 관리자 페이지 상품관리 상품삭제 void deleteProduct(HashMap<String, Object> paramMap); -->
+	<select id="deleteProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL deleteProduct_m(
+			#{pseq, jdbcType=INTEGER}
+		)}
+	</select>
+	
+	<!-- 관리자 페이지 상품관리 수정 업데이트 void updateProduct(HashMap<String, Object> paramMap);-->
+	<select id="updateProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL updateProduct_m(
+			#{pseq, jdbcType=INTEGER}, 
+			#{kind}, 
+			#{name}, 
+			#{bestyn, jdbcType=VARCHAR}, 
+			#{useyn, jdbcType=VARCHAR}, 
+			#{content}, 
+			#{price1, jdbcType=INTEGER}, 
+			#{price2, jdbcType=INTEGER}, 
+			#{image}, 
+			#{image1, jdbcType=VARCHAR}, 
+			#{image2, jdbcType=VARCHAR}
+		)}
+	</select>
+	
+	<!-- 관리자 페이지 공개유무 void updateProductUseyn(HashMap<String, Object> paramMap);-->
+	<select id="updateProductUseyn" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL updateProductUseyn_m(
+			#{pseq, jdbcType=INTEGER},
+			#{selectedIndex, jdbcType=VARCHAR}
+		)}
+	</select>
+	
+</mapper>
