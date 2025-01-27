@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.mealShop.dao.IMAdminDao">
+	<resultMap type="java.util.HashMap" id="adminMap"/>
+
+	<!-- 관리자 로그인 MAdminVO adminInfo(String id, String pwd); -->
+	<select id="adminInfo" parameterType="map" resultType="com.mealShop.dto.MAdminVO">
+		SELECT id, pwd, name
+		FROM MADMIN
+		WHERE id = #{id} AND pwd = #{pwd}
+	</select>
+	
+	<!-- 상품관리 전체 목록 조회 List<MProductVO> productList(@Param("pseq") int pseq); -->
+	<select id="productList" parameterType="map" resultType="com.mealShop.dto.MProductVO">
+		SELECT *
+		FROM MPRODUCT
+	</select>
+	
+	<!-- 배너 조회 ArrayList<HashMap<String, Object>> bannerList(HashMap<String, Object> paramMap); -->
+	<select id="bannerList"  statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getBannerList_m(
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+		)}
+	</select>
+	
+	<!--  -->
+	<!--  -->
+	
+	<!-- void getAllcountAdmin(HashMap<String, Object> paramMap); -->
+	<select id="getAllcountAdmin" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getAllcountAdmin_m(
+			#{key},
+			#{tableName},
+			#{columnName},
+			#{cnt, mode=OUT, jdbcType=INTEGER}
+		)}
+	</select>
+	
+	
+	
+</mapper>
