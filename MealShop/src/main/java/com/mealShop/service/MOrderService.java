@@ -65,10 +65,10 @@ public class MOrderService {
 		odao.orderCancelForm(paramMap);
 	}
 
-	/*
-	 * public void listOrderByIdIng(HashMap<String, Object> paramMap1) {
-	 * odao.listOrderByIdIng( paramMap1 ); }
-	 */
+	
+	  public void listOrderByIdIng(HashMap<String, Object> paramMap1) {
+	  odao.listOrderByIdIng( paramMap1 ); }
+	 
 	
 	public void getResultByOdseq(HashMap<String, Object> paramMap) {
 		odao.getResultByOdseq(paramMap);
