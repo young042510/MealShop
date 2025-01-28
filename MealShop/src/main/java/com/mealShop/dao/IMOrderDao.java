@@ -40,7 +40,7 @@ public interface IMOrderDao {
 	// 주문취소
 	void orderCancelForm(HashMap<String, Object> paramMap);
 
-	// void listOrderByIdIng(HashMap<String, Object> paramMap1);
+	void listOrderByIdIng(HashMap<String, Object> paramMap1);
 	
 	void getResultByOdseq(HashMap<String, Object> paramMap);
 
