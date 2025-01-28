@@ -50,19 +50,27 @@ public class MAdminController {
 	        session.removeAttribute("page");
 	    }
 
-	    Integer page = (request.getParameter("page") != null) 
-	                   ? Integer.parseInt(request.getParameter("page"))
-	                   : (session.getAttribute("page") != null) 
-	                     ? (Integer) session.getAttribute("page") 
-	                     : 1;
+	    Integer page;
+	    try {
+	        page = (request.getParameter("page") != null)? Integer.parseInt(request.getParameter("page")) : null;
+	    } catch (NumberFormatException e) {
+	        page = null;
+	    }
+
+	    if (page == null) {
+	        Object sessionPage = session.getAttribute("page");
+	        if (sessionPage instanceof Integer) {
+	            page = (Integer) sessionPage;
+	        } else {
+	            page = 1;
+	        }
+	    }
+
 	    session.setAttribute("page", page);
 	    paramMap.put("page", page);
 
-	    String key = (request.getParameter("key") != null) 
-	                 ? request.getParameter("key") 
-	                 : (session.getAttribute("key") != null) 
-	                   ? (String) session.getAttribute("key") 
-	                   : "";
+	    String key = (request.getParameter("key") != null) ? request.getParameter("key")
+	    												   : (session.getAttribute("key") instanceof String) ? (String) session.getAttribute("key") : "";
 	    session.setAttribute("key", key);
 	    paramMap.put("key", key);
 
