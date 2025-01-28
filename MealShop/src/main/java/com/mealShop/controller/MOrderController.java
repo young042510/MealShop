@@ -352,7 +352,7 @@ public class MOrderController {
 	}
 	
 	// 7. 장바구니 담기
-	@GetMapping(value="/orderInsertNow")
+	@PostMapping(value="/orderInsertNow")
 	public ModelAndView orderInsertNow(HttpServletRequest request, 
 			@RequestParam(value="pseq",required = false) int pseq,
 			@RequestParam(value="quantity",required = false) int quantity){
