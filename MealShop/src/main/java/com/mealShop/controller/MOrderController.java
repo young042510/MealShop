@@ -62,8 +62,8 @@ public class MOrderController {
 	}
 	
 	
-	//2. 주문내역 불러오기
-	@GetMapping(value="/orderList")
+		//2. 주문내역 불러오기
+		@GetMapping(value="/orderList")
 		public ModelAndView orderListForm( HttpServletRequest request, Model model ) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -81,9 +81,10 @@ public class MOrderController {
 			if(request.getParameter("page")!=null) {
 				page=Integer.parseInt(request.getParameter("page"));
 				session.setAttribute("page", page);
-			}else if(session.getAttribute("page")!=null) {
-				page=(Integer)session.getAttribute("page");
-			}else {
+			} /*
+				 * else if(session.getAttribute("page")!=null) {
+				 * //page=(Integer)session.getAttribute("page"); }
+				 */else {
 				session.removeAttribute("page");
 			}	
 			
@@ -135,6 +136,7 @@ public class MOrderController {
 		return mav;
 	}
 	
+	
 	//3. 주문상세내역
 	@GetMapping(value="/orderDetail")  
 	public ModelAndView orderDetail( HttpServletRequest request, Model model,
@@ -169,7 +171,7 @@ public class MOrderController {
 		return mav;
 	}
 
-	// 마이페이지
+	//마이페이지
 	@RequestMapping(value="/myPage")  
 	public ModelAndView mypage( HttpServletRequest request, Model model ) {
 		ModelAndView mav = new ModelAndView();
@@ -186,10 +188,9 @@ public class MOrderController {
 			HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
 			paramMap1.put("id", loginUser.get("ID") );
 			paramMap1.put("ref_cursor", null);
-			//os.listOrderByIdIng( paramMap1 );   // 현재로그인유저의 진행중인 주문들의 "주문번호들" 조회
+			os.listOrderByIdIng( paramMap1 );   // 현재로그인유저의 진행중인 주문들의 "주문번호들" 조회
 			ArrayList<HashMap<String, Object>> oseqList 
 				= (ArrayList<HashMap<String, Object>>)paramMap1.get("ref_cursor");
-			
 			// 주문번호별 주문내역을 조회
 			for( HashMap<String, Object> result : oseqList ) {
 				int oseq = Integer.parseInt( result.get("OSEQ").toString() );   // 주문번호 1개 추출
@@ -390,5 +391,6 @@ public class MOrderController {
 	}
 		
 	
+
 }
 
