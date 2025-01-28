@@ -1,43 +1,59 @@
 package com.mealShop.dto;
 
-
 import lombok.Data;
 
 @Data
 public class Paging {
-	
-	private int page=1; //현재 화면에 표시될 페이지번호
-	private int totalCount;  //게시물의 총갯수
-	private int beginPage; //prev 와 next 버튼 사이에 표시될 시작 페이지 
-	private int endPage; //prev 와 next 버튼 사이에 표시될 끝 페이지
-	private int displayRow=12; //한 화면에 표시 될 게시물의 갯수
-	private int displayPage=5; //prev 와 next 버튼 사이의 한화면에 표시될 패이지의 갯수
-	boolean prev ; // 화면에 안보이는 이전 페이지로 이동하는 버튼
-	boolean next; // 화면에 안보이는 다음 페이지로 이동하는 버튼
-	private int startNum; //화면에 표시되는 게시물의 시작번호 (num. pseq 같은 번호가 아닌rownum)
-	private int endNum; //화면에 표시되는 게시물의 끝번호 (num, pseq같은 번호가 아닌rownum)
-	    
-	public void paging(){
-    	endPage = ((int)Math.ceil(page/(double)displayPage))*displayPage;
+
+    private int page = 1; // 현재 페이지 번호
+    private int totalCount; // 게시물 총 갯수
+    private int beginPage; // 시작 페이지 번호
+    private int endPage; // 끝 페이지 번호
+    private int displayRow = 12; // 한 화면에 표시될 게시물 수
+    private int displayPage = 5; // 한 화면에 표시될 페이지 수
+    private boolean prev; // 이전 버튼 활성화 여부
+    private boolean next; // 다음 버튼 활성화 여부
+    private int startNum; // 시작 게시물 번호
+    private int endNum; // 끝 게시물 번호
+
+    /**
+     * 페이징 계산 메서드
+     */
+    private void calculatePaging() {
+        // 총 페이지 수 계산
+        int totalPage = (int) Math.ceil((double) totalCount / displayRow);
+
+        // 현재 페이지 그룹의 끝 페이지
+        endPage = ((int) Math.ceil((double) page / displayPage)) * displayPage;
+
+        // 현재 페이지 그룹의 시작 페이지
         beginPage = endPage - (displayPage - 1);
-        int totalPage = (int)Math.ceil(totalCount/(double)displayRow);
-        if(totalPage<endPage){
+
+        // 끝 페이지가 총 페이지 수를 초과하지 않도록 조정
+        if (endPage > totalPage) {
             endPage = totalPage;
-            next = false;
-        }else{
-            next = true;
         }
-        if(beginPage==1)prev = false;
-        else prev = true;
-        startNum = (page-1)*displayRow+1;
-        endNum = page*displayRow;
-    	//잘 작동 되는 지 확인 하는 방법 
-        System.out.println(beginPage + " " + endPage + " " + startNum + " " + endNum);
+
+        // 이전/다음 버튼 활성화 여부
+        prev = beginPage > 1;
+        next = endPage < totalPage;
+
+        // 게시물 번호 범위 계산
+        startNum = (page - 1) * displayRow + 1;
+        endNum = Math.min(page * displayRow, totalCount);
+
+        // 디버깅용 출력 (필요 시 주석 처리 가능)
+        System.out.printf("Paging Info: beginPage=%d, endPage=%d, startNum=%d, endNum=%d, prev=%b, next=%b%n",
+                beginPage, endPage, startNum, endNum, prev, next);
     }
-	
-	public void setTotalCount(int totalCount) {
-		this.totalCount = totalCount;
-		paging();  // 멤버메서드 호출 -> 각 멤버변수 구성요소를 계산해주는 메서드
-	}
-    
+
+    /**
+     * 총 게시물 수를 설정하고 페이징 계산을 트리거
+     * 
+     * @param totalCount 총 게시물 수
+     */
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+        calculatePaging();
+    }
 }
