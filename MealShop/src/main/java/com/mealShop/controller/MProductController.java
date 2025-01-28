@@ -16,8 +16,10 @@ import com.mealShop.dto.Paging;
 import com.mealShop.service.MAdminService;
 import com.mealShop.service.MProductService;
 import com.mealShop.service.MReviewService;
+import com.mealShop.service.MZzimService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
 
@@ -29,6 +31,7 @@ public class MProductController {
 	MAdminService adminService;
 	MProductService productService;
 	MReviewService reviewService;
+	MZzimService zzimService;
 	
 	@ModelAttribute("loginUser")
 	public HashMap<String, Object> initLoginUser(){
@@ -45,9 +48,11 @@ public class MProductController {
 		return "1";
 	}
 	
-	private HashMap<String, Object> getLoginUser(@ModelAttribute("loginUser") HashMap<String, Object> loginUser){
-		if (loginUser != null) {return loginUser;}
-		return loginUser;
+	private HashMap<String, Object> getLoginUser(HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+
+		return (HashMap<String, Object>) session.getAttribute("loginUser");
 	}
 	
 	//메인 홈 - 로그인 세션 필요하면 추가
@@ -128,9 +133,7 @@ public class MProductController {
 	    model.addAttribute("mproductVoList", productList);
 	    model.addAttribute("key", key);
 	    model.addAttribute("idx", idx);
-	    
-	    System.out.println("키가 뭐야???????????????"+key);
-        
+  
 		return "product/productAll";
 	}
 	
@@ -138,13 +141,13 @@ public class MProductController {
 	@RequestMapping("/productForm")
 	public String productForm(HttpServletRequest request
 			, Model model
-			,@RequestParam(value = "sort", defaultValue = "recently") String sort
-			,@RequestParam(value = "idx", defaultValue = "0") Integer idx
-            ,@RequestParam(value = "sub", required = false) String sub
-            ,@RequestParam(value = "key", required = false) String requestKey
-            ,@RequestParam(value = "page", required = false) Integer requestPage
-            ,@ModelAttribute("key") String key
-            ,@ModelAttribute("page") Integer page) {
+			, @RequestParam(value = "sort", defaultValue = "recently") String sort
+			, @RequestParam(value = "idx", defaultValue = "0") Integer idx
+            , @RequestParam(value = "sub", required = false) String sub
+            , @RequestParam(value = "key", required = false) String requestKey
+            , @RequestParam(value = "page", required = false) Integer requestPage
+            , @ModelAttribute("key") String key
+            , @ModelAttribute("page") Integer page) {
 		
 		if ("y".equals(sub)) {key = ""; page = 1;}
 		
@@ -170,10 +173,6 @@ public class MProductController {
 		paramMap.put("key", key.isEmpty() ? "" : key);
 		paramMap.put("bestyn", "y".equals(bestyn) ? "y" : null);
 		paramMap.put("newyn", "y".equals(newyn) ? "y" : null);
-
-		System.out.println("paramMap: " + paramMap);
-	    System.out.println("Paging startNum: " + paging.getStartNum());
-	    System.out.println("Paging endNum: " + paging.getEndNum());
 
 		ArrayList<HashMap<String, Object>> productList = new ArrayList<>();
 		paramMap.put("ref_cursor", null);
@@ -236,50 +235,112 @@ public class MProductController {
 			, @RequestParam("pseq") int pseq
 			, @ModelAttribute("loginUser") HashMap<String , Object> loginUser) {
 		
-		ModelAndView mav = new ModelAndView();	
-		mav.setViewName("product/productDetail");
-		
-		//장바구니, 찜하기 등등 기능에 필요해서 로그인 세션 확인 추가했는데 나중에 수정
-		//loginUser = getLoginUser(loginUser);
-		//System.out.print("로그인 누구?????>>>>" + loginUser);
+		ModelAndView mav = new ModelAndView("product/productDetail");	
+		loginUser = getLoginUser(request);
 		
 		HashMap<String, Object> paramMap = new HashMap<>();
 		paramMap.put("pseq", pseq);
-		paramMap.put("ref_cursor", null);		
-		productService.getProduct(paramMap);
 		
+		paramMap.put("ref_cursor", null);			
+		productService.getProduct(paramMap);
 		ArrayList<HashMap<String,Object>> mproductVOList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
+		
 	    HashMap<String,Object> resultMap = mproductVOList.get(0);
 	    mav.addObject("mproductVO", resultMap);
 	    
 	    paramMap.put("ref_cursor_Image1", null);
 	    paramMap.put("ref_cursor_Image2", null);
+	    
 	    productService.getImages(paramMap);
 	    
 		ArrayList<HashMap<String,Object>> image1List = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_Image1");
 		ArrayList<HashMap<String,Object>> image2List = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_Image2");
+		
 		mav.addObject("mpdimg", image1List );
 		mav.addObject("mpdimg2", image2List );
 
 		paramMap.put("ref_cursor_getReview", null);
 		reviewService.getReviewListByPseq(paramMap);		
-		ArrayList<HashMap<String,Object>> reViewList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_getReview");
+		
+		ArrayList<HashMap<String,Object>> reViewList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_getReview");	
 		mav.addObject("mreview", reViewList );
+		
 		paramMap.put("ref_cursor_productorderList", null);
 		reviewService.getproductorderList(paramMap);
 		ArrayList<HashMap<String,Object>> productorderList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_productorderList");
-		if(productorderList.size() ==0)model.addAttribute("reviewresult",-1);
-		else model.addAttribute("reviewresult",1);
-		model.addAttribute("pseq",pseq);
+
+		model.addAttribute("reviewresult", productorderList.isEmpty() ? -1 : 1);			
         mav.addObject("productorderList", productorderList);
+
+        if (loginUser != null) {paramMap.put("id", loginUser.get("ID"));}
         
-		//로그인되면 > 찜 갯수 구현
+        paramMap.put("ref_cursor_zzim", null);
         
-		return mav;
+        zzimService.getlistZzim(paramMap);
+        
+        ArrayList<HashMap<String,Object>> zzimList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_zzim");
+        model.addAttribute("result", zzimList.isEmpty() ? -1 : 1);
+
+        paramMap.put("ref_cursor_zzimcnt", null);
+        
+		zzimService.getZimcount(paramMap);
+		
+		int zzim =Integer.parseInt(paramMap.get("ref_cursor_zzimcnt").toString());
+		
+		mav.addObject("zzimcount", zzim);     
+        mav.addObject("zzimList", zzimList);
+        
+        return mav;
 	}
 	
-	//로그인되면 찜확인
-	//로그인되면 찜삭제
-	//로그인되면 찜등록
-	
+	//찜 등록
+	@GetMapping({"/zzim", "/zzimInsert"})
+	public ModelAndView zzim(HttpServletRequest request,
+	                         @RequestParam("pseq") int pseq,
+	                         @ModelAttribute("loginUser") HashMap<String, Object> loginUser) {
+
+	    ModelAndView mav = new ModelAndView();
+	    
+	    HttpSession session = request.getSession();
+	    
+	    HashMap<String, Object> paramMap = new HashMap<>();
+
+	    session.setAttribute("redirectUrl", "productDetail?pseq=" + pseq);
+	    loginUser = getLoginUser(request);
+
+	    if (loginUser == null || loginUser.get("ID") == null) {
+	    	mav.addObject("message", "로그인 후 이용 가능합니다.");
+	        mav.setViewName("member/login");
+	        return mav;
+	        
+	    }else {
+	    	paramMap.put("id", loginUser.get("ID"));
+	    	paramMap.put("pseq", pseq);
+	    	zzimService.zzimInsert(paramMap);  	
+	    	
+	    	String redirectPath = "/zzim".equals(request.getRequestURI()) ? "redirect:/productDetail?pseq=" + pseq : "redirect:/mypage/zzimList";	    	
+	    	mav.setViewName(redirectPath);
+	    	
+	    	return mav;			
+		}	
+	}
+
+	//찜 삭제
+	@GetMapping("/zzimdelete")
+	public ModelAndView	zzimDelete(HttpServletRequest request
+			, @RequestParam("pseq") int pseq
+			, @ModelAttribute("loginUser") HashMap<String , Object> loginUser) {
+		
+		ModelAndView mav = new ModelAndView("redirect:/productDetail");		
+		loginUser = getLoginUser(request); 
+		
+		HashMap<String, Object> paramMap = new HashMap<>();
+		paramMap.put("pseq", pseq);
+		zzimService.zzimDelete(paramMap);
+		
+		mav.addObject("pseq", pseq);
+		
+		return mav;
+	}
+
 }

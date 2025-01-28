@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.mealShop.dao.IMZzimDao"> 
+	<resultMap type="java.util.HashMap" id="zzimMap"/>
+
+	<!-- 상품 디테일 찜 조회 void getlistZzim(HashMap<String, Object> paramMap); -->
+	<select id="getlistZzim" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getlistZzim_m(
+		 	#{pseq},
+		 	#{id,  jdbcType=VARCHAR},
+		 	#{ref_cursor_zzim, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=zzimMap}
+ 		)}
+	</select>
+	
+	<!-- 찜 갯수 void getZimcount(HashMap<String, Object> paramMap); -->
+	<select id="getZimcount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getZimcount_m(
+		 	#{pseq},
+		 	#{ref_cursor_zzimcnt, mode=OUT, jdbcType=INTEGER}
+	 	)}
+	</select>
+	
+	<!-- 찜하기 void zzimInsert(HashMap<String, Object> paramMap); -->
+	<select id="zzimInsert" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL zzimInsert_m(
+		 	#{id},
+		 	#{pseq,  jdbcType=INTEGER} 
+	 	)}
+	</select>
+	
+	<!-- 찜삭제 void zzimDelete(HashMap<String, Object> paramMap); -->
+	<select id="zzimDelete" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL zzimDelete_m(
+ 	 		#{pseq, jdbcType=INTEGER}
+ 	 	)}
+	</select>
+
+</mapper>
