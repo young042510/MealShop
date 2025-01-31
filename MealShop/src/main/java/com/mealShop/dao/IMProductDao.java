@@ -1,6 +1,7 @@
 package com.mealShop.dao;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +17,8 @@ public interface IMProductDao {
 	void getahight(HashMap<String, Object> paramMap);
 
 	void listProduct(HashMap<String, Object> paramMap);
+	
+	void fullListProduct(HashMap<String, Object> paramMap);
 
 	void getBlow(HashMap<String, Object> paramMap);
 
@@ -44,4 +47,7 @@ public interface IMProductDao {
 	void updateProduct(HashMap<String, Object> paramMap);
 
 	void updateProductUseyn(HashMap<String, Object> paramMap);
+
+	void insertProduct(Map<String, Object> paramMap);
+
 }

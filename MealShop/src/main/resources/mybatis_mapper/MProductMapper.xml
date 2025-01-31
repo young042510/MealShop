@@ -40,9 +40,19 @@
 		)}
 	</select>
 	
-	<!-- void listProduct(HashMap<String, Object> paramMap); -->
+	<!-- 메인홈 상품공개 유무에 따라 조회 void listProduct(HashMap<String, Object> paramMap); -->
 	<select id="listProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{CALL listProduct_m(
+			#{startNum},
+			#{endNum},
+			#{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap}
+		)}
+	</select>
+	
+	<!-- 관리자 페이지에서 조건없이 상품 목록조회void fullListProduct(HashMap<String, Object> paramMap); -->
+	<select id="fullListProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL fullListProduct_m(
 			#{startNum},
 			#{endNum},
 			#{key},
@@ -188,4 +198,17 @@
 		)}
 	</select>
 	
+	<!-- 관리자 페이지 상품등록 void insertProduct(Map<String, Object> paramMap); -->
+	<select id="insertProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL insertProduct_m(
+			#{kind}, #{name}, 
+			#{bestyn, jdbcType=VARCHAR}, 
+			#{useyn, jdbcType=VARCHAR}, 
+			#{content}, 
+			#{price1, jdbcType=INTEGER}, 
+			#{price2, jdbcType=INTEGER}, #{image}, 
+			#{image1, jdbcType=VARCHAR}, 
+			#{image2, jdbcType=VARCHAR}
+		)}	
+	</select>
 </mapper>

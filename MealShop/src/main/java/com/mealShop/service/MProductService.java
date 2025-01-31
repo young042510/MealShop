@@ -1,6 +1,7 @@
 package com.mealShop.service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,17 +26,20 @@ public class MProductService {
 
 	public void getalow(HashMap<String, Object> paramMap) {
 		imProductDao.getalow(paramMap);
-		
 	}
 
 	public void getahight(HashMap<String, Object> paramMap) {
 		imProductDao.getahight(paramMap);
-		
 	}
 
+	//공개유무에 따라 목록 조회
 	public void listProduct(HashMap<String, Object> paramMap) {
 		imProductDao.listProduct(paramMap);
-		
+	}
+	
+	//조건 없이 전체 목록 조회
+	public void fullListProduct(HashMap<String, Object> paramMap) {
+		imProductDao.fullListProduct(paramMap);		
 	}
 
 	public void getBLow(HashMap<String, Object> paramMap) {
@@ -90,11 +94,16 @@ public class MProductService {
 	@Transactional(rollbackFor = Exception.class)
 	public void updateProduct(HashMap<String, Object> paramMap) {
 		imProductDao.updateProduct(paramMap);
-		
 	}
 
 	@Transactional(rollbackFor = Exception.class)
 	public void updateProductUseyn(HashMap<String, Object> paramMap) {
 		imProductDao.updateProductUseyn(paramMap);
 	}
+
+	@Transactional(rollbackFor = Exception.class)
+	public void insertProduct(Map<String, Object> paramMap) {
+		imProductDao.insertProduct(paramMap);
+	}
+
 }
