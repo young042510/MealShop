@@ -31,5 +31,12 @@ public class MZzimService  {
 		zzimDao.zzimDelete(paramMap);
 	}
 
-	
+	public void getAllCountZzim(HashMap<String, Object> paramMap) {
+		zzimDao.getAllCountZzim(paramMap);
+	}
+
+	public void listZzim(HashMap<String, Object> paramMap) {
+		zzimDao.listZzim(paramMap);
+	}
+
 }

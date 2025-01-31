@@ -14,5 +14,9 @@ public interface IMZzimDao {
 	void zzimInsert(HashMap<String, Object> paramMap);
 
 	void zzimDelete(HashMap<String, Object> paramMap);
+
+	void getAllCountZzim(HashMap<String, Object> paramMap);
+
+	void listZzim(HashMap<String, Object> paramMap);
 	
 }

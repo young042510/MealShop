@@ -37,4 +37,21 @@
  	 	)}
 	</select>
 
+	<!-- 찜한 상품 목록 조회 void getAllCountZzim(HashMap<String, Object> paramMap); -->
+	<select id="getAllCountZzim" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getAllCountZzim_m(
+			#{cnt, mode=OUT,jdbcType=INTEGER}
+		)}
+	</select>
+	
+	<!-- void listZzim(HashMap<String, Object> paramMap); -->
+	<select id="listZzim" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL listZzim_m(
+		 	#{startNum},
+		 	#{endNum},
+		 	#{id},
+		 	#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=zzimMap}
+		)}
+	</select>
+	
 </mapper>
