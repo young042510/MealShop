@@ -21,4 +21,41 @@
 		}
 	</select>
 	
+	<!-- void listReview(HashMap<String, Object> paramMap); -->
+	<select id="listReview" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL listReview_m(
+			#{id},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=reviewMap}
+		)}
+	</select>
+	
+	<!-- void reviewDelete(HashMap<String, Object> paramMap); -->
+	<select id="reviewDelete" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL reviewDelete_m(
+			#{rseq}
+		)}
+	</select>
+	
+	<!-- void insertReview(HashMap<String, Object> paramMap); -->
+	<select id="insertReview" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL insertReview_m(#{id},
+			#{content},
+			#{pseq}
+		)}
+	</select>
+	
+	<!-- int getUserOrderCnt(HashMap<String, Object> paramMap); -->
+	<select id="getUserOrderCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM MORDER_VIEW
+		WHERE ID = #{userId} AND PSEQ = #{pseq}
+	</select>
+
+	<!-- int getUserReviewCnt(HashMap<String, Object> paramMap); -->
+	<select id="getUserReviewCnt" parameterType="hashmap" resultType="int">
+		SELECT COUNT(*)
+		FROM MREVIEW_VIEW
+		WHERE ID = #{userId} AND R_PSEQ = #{pseq}
+	</select>
+	
 </mapper>
