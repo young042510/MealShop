@@ -49,6 +49,5 @@ public class MReviewService {
 		
 		return reviewDao.getUserReviewCnt(paramMap);
 	}
-	
-	
+
 }
