@@ -8,12 +8,7 @@
 <form name="frm" method="post">
 	<table>
 		<tr>
-			<td width="460">
-				<select name="searchField" id="searchFieldSelect">
-					<option value="">선택</option>
-					<option value="name">상품명</option>
-				</select>
-				<input type="text" name="key" value="${key}">
+			<td width="460">상품명<input type="text" name="key" value="${key}">
 				<input class="btn" type="button" name="btn_search" value="검색" onclick="go_search('adminProductList');">
 				<!-- 2025/1/24 전체보기 버튼 제거 > 페이지 오픈되면 바로 목록보이게 구현 -->
 				<input class="btn" type="button" name="btn_write" value="상품등록" onclick="go_wrt_Product();">
