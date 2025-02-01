@@ -9,4 +9,6 @@ public interface IMQnaDao {
 
 	void getQna(HashMap<String, Object> paramMap);
 
+	void getnmQna(HashMap<String, Object> paramMap);
+
 }

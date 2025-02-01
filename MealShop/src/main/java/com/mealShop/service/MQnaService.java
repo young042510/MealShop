@@ -18,4 +18,8 @@ public class MQnaService {
 		imQnaDao.getQna(paramMap);	
 	}
 
+	public void getnmQna(HashMap<String, Object> paramMap) {
+		imQnaDao.getnmQna(paramMap);
+	}
+
 }

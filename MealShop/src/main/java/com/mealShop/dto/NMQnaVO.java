@@ -1,18 +1,13 @@
 package com.mealShop.dto;
 
-
 import java.sql.Timestamp;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class MQnaVO {
-
-	private int qseq;
+public class NMQnaVO {
+	
+	private int nqseq;
 	private String subject;
 	private String content;
 	private String reply;
@@ -20,5 +15,4 @@ public class MQnaVO {
 	private String pwd;
 	private String rep;
 	private Timestamp indate;
-	
 }

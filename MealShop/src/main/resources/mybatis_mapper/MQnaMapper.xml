@@ -12,4 +12,12 @@
 		)}
 	</select>
 
+	<!-- void getnmQna(HashMap<String, Object> paramMap); -->
+	<select id="getnmQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getnmQna_m(
+			#{nqseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=qnaMap}
+		)}
+	</select>
+
 </mapper>

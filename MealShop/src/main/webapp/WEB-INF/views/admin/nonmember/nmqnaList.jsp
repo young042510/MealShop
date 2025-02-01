@@ -9,8 +9,8 @@
 <input type="hidden" name="nmqnaList" value="${nmqnaList}">
 	<table>
 		<tr><td width="642">작성자 &nbsp;<input type="text" name="key" value="${key }">&nbsp;
-			<input class="btn" type="button" name="btn_search" value="검색" onclick="go_search('adminQnaList');">&nbsp;
-			<input class="btn" type="button" name="btn_total" value="전체보기" onclick="go_total('adminQnaList');">&nbsp;
+			<input class="btn" type="button" name="btn_search" value="검색" onclick="go_search('adminnmQnaList');">&nbsp;
+			<input class="btn" type="button" name="btn_total" value="전체보기" onclick="go_total('adminnmQnaList');">&nbsp;
 		</tr>
 	</table>
 </form>
