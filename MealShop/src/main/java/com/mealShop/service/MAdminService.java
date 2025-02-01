@@ -2,40 +2,97 @@ package com.mealShop.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mealShop.dao.IMAdminDao;
-import com.mealShop.dto.MAdminVO;
-import com.mealShop.dto.MProductVO;
+
+import lombok.AllArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class MAdminService {
 
-	@Autowired
 	private IMAdminDao imAdminDao;
-	
-	//관리자 로그인
-	public MAdminVO login(String id, String pwd) {
-		return imAdminDao.adminInfo(id, pwd);
+
+	public void getAdmin(HashMap<String, Object> paramMap) {
+		imAdminDao.getAdmin(paramMap);
 	}
 
-	//상품 정보 조회
-	public List<MProductVO> getProductList() {
-		return imAdminDao.productList();
-	}
-	
-	//배너 리스트 조회
 	public ArrayList<HashMap<String, Object>> getBannerList(HashMap<String, Object> paramMap){
 		return imAdminDao.bannerList(paramMap);
 	}
-	
-	//
-	//
+
 	public void getAllcountAdmin(HashMap<String, Object> paramMap) {		
 		imAdminDao.getAllcountAdmin(paramMap);
+	}
+
+	public void adminListQna(HashMap<String, Object> paramMap) {
+		imAdminDao.adminListQna(paramMap);
+	}
+
+	public void admininsertQna(HashMap<String, Object> paramMap) {
+		imAdminDao.admininsertQna(paramMap);
+	}
+
+	public void getAllcountAdminAsk(HashMap<String, Object> paramMap) {
+		imAdminDao.getAllcountAdminAsk(paramMap);
+	}
+
+	public void adminListAsk(HashMap<String, Object> paramMap) {
+		imAdminDao.adminListAsk(paramMap);
+	}
+
+	public void getAdminAsk(HashMap<String, Object> paramMap) {
+		imAdminDao.getAdminAsk(paramMap);
+	}
+
+	public void adminAskReplyUpsert(HashMap<String, Object> paramMap) {
+		imAdminDao.adminAskReplyUpsert(paramMap);
+	}
+
+	public void adminListReview(HashMap<String, Object> paramMap) {
+		imAdminDao.adminListReview(paramMap);		
+	}
+
+	public void deleteReview(HashMap<String, Object> paramMap) {
+		imAdminDao.deleteReview(paramMap);
+	}
+
+	public void adminnmListQna(HashMap<String, Object> paramMap) {
+		imAdminDao.adminnmListQna(paramMap);
+	}
+
+	public void admininsertnmQna(HashMap<String, Object> paramMap) {
+		imAdminDao.admininsertnmQna(paramMap);
+	}
+
+	public void getEventSelect(HashMap<String, Object> paramMap) {
+		imAdminDao.getEventSelect(paramMap);
+	}
+
+	public void getImgesEvent(HashMap<String, Object> paramMap) {
+		imAdminDao.getImgesEvent(paramMap);	
+	}
+
+	public void eventDelete(HashMap<String, Object> paramMap) {
+		imAdminDao.eventDelete(paramMap);	
+	}
+
+	public void eventUpdate(HashMap<String, Object> paramMap) {
+		imAdminDao.eventUpdate(paramMap);
+	}
+
+	public void eventInsert(HashMap<String, Object> paramMap) {
+		imAdminDao.eventInsert(paramMap);	
+	}
+
+	public void deleteBanner() {
+		imAdminDao.deleteBanner();
+	}
+
+	public void insertBanner(HashMap<String, Object> paramMap) {
+		imAdminDao.insertBanner(paramMap);
 	}
 
 }
