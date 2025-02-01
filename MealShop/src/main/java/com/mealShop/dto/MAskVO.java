@@ -1,10 +1,14 @@
 package com.mealShop.dto;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MAskVO {
 
 	private int aseq;
