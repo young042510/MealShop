@@ -28,4 +28,45 @@
 		)}
 	</select>
 	
+	<!-- void getNoticeAll(HashMap<String, Object> paramMap); -->
+	<select id="getNoticeAll" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL getNoticeAll_m(
+			#{key},
+			#{startNum},
+			#{endNum},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=eventMap}
+		)}
+	</select>
+	
+	<!-- void insertNotice(HashMap<String, Object> paramMap); -->
+	<select id="insertNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL insertNotice_m(
+			#{subject, jdbcType=VARCHAR},
+			#{useyn, jdbcType=VARCHAR},
+			#{content, jdbcType=VARCHAR},
+			#{image1, jdbcType=VARCHAR},
+			#{result, jdbcType=VARCHAR}
+		)}
+	</select>
+	
+	<!-- void updateNotice(HashMap<String, Object> paramMap); -->
+	<select id="updateNotice" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL updateNotice_m(
+			#{nseq, jdbcType=INTEGER},
+			#{subject, jdbcType=VARCHAR},
+			#{useyn, jdbcType=VARCHAR},
+			#{content, jdbcType=VARCHAR},
+			#{image1, jdbcType=VARCHAR},
+			#{result, jdbcType=VARCHAR}
+		)}
+	</select>
+	
+	<!-- void updateNoticeUseyn(HashMap<String, Object> paramMap); -->
+	<select id="updateNoticeUseyn"  statementType="CALLABLE" parameterType="java.util.HashMap">
+		{CALL updateNoticeUseyn_m(
+			#{nseq, jdbcType=INTEGER},
+			#{selectedIndex, jdbcType=VARCHAR}
+		)}
+	</select>
+	
 </mapper>

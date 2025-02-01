@@ -26,4 +26,20 @@ public class MNoticeService {
 		imNoticeDao.getNoticeOne(paramMap);
 	}
 
+	public void getNoticeAll(HashMap<String, Object> paramMap) {
+		imNoticeDao.getNoticeAll(paramMap);
+	}
+
+	public void insertNotice(HashMap<String, Object> paramMap) {
+		imNoticeDao.insertNotice(paramMap);
+	}
+
+	public void updateNotice(HashMap<String, Object> paramMap) {
+		imNoticeDao.updateNotice(paramMap);		
+	}
+
+	public void updateNoticeUseyn(HashMap<String, Object> paramMap) {
+		imNoticeDao.updateNoticeUseyn(paramMap);
+	}
+	
 }
