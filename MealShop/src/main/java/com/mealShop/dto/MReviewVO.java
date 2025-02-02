@@ -10,9 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MReviewVO {
 
-	private int rseq;
-	private int pseq;
+	private Integer rseq;
+	private Integer pseq;
+	
+	@NotNull(message="내용을 입력하세요!")
+	@NotEmpty(message="내용을 입력하세요!")
+	@NotBlank(message="내용입력해주세요!")
 	private String content;
+	
 	private String id;
 	private Timestamp indate;
 	private String pname;

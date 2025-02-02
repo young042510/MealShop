@@ -9,39 +9,47 @@ import com.mealShop.dao.IMReviewDao;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
 public class MReviewService {
-
+	
+	@Autowired
 	IMReviewDao reviewDao;
 
-	public void getReviewListByPseq(HashMap<String, Object> paramMap) {
-		reviewDao.getReviewListByPseq(paramMap);		
+	public void listQna(HashMap<String, Object> paramMap) {
+		qdao.listQna(paramMap);
 	}
 
-	public void getproductorderList(HashMap<String, Object> paramMap) {
-		reviewDao.getproductorderList(paramMap);
-	}
-
-	public void listReview(HashMap<String, Object> paramMap) {
-		reviewDao.listReview(paramMap);
-	}
-
-	public void reviewDelete(HashMap<String, Object> paramMap) {
-		reviewDao.reviewDelete(paramMap);
-	}
-
-	public void insertReview(HashMap<String, Object> paramMap) {
-		reviewDao.insertReview(paramMap);
-	}
-
-	public int getUserOrderCnt(String userId, int pseq) {
-		HashMap<String, Object> paramMap = new HashMap<>();
-		paramMap.put("userId", userId);
-		paramMap.put("pseq", pseq);
+	public void getQna(HashMap<String, Object> paramMap) {
+		qdao.getQna(paramMap);
 		
-		return reviewDao.getUserOrderCnt(paramMap);
+	}
+	@Transactional(rollbackFor = Exception.class)
+	public void insertQna(HashMap<String, Object> paramMap) {
+		qdao.insertQna(paramMap);
 	}
 
+	public void getAllCountQna(HashMap<String, Object> paramMap) {
+		qdao.getAllCount(paramMap);
+	}
+
+	public void getAllCountnmQna(HashMap<String, Object> paramMap) {
+		qdao.getAllCountnmQna(paramMap);
+	}
+
+	public void nmlistQna(HashMap<String, Object> paramMap) {
+		qdao.nmlistQna(paramMap);
+	}
+
+	public void insertnmQna(HashMap<String, Object> paramMap) {
+		qdao.insertnmQna(paramMap);
+	}
+
+	public void getnmQna(HashMap<String, Object> paramMap) {
+		qdao.getnmQna(paramMap);
+	}
+
+	public void getNmqnaByNqseq(HashMap<String, Object> paramMap) {
+		qdao.getNmqnaByNqseq(paramMap);
+	}
 	public int getUserReviewCnt(String userId, int pseq) {
 		HashMap<String, Object> paramMap = new HashMap<>();
 		paramMap.put("userId", userId);
