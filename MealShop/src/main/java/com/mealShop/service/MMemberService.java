@@ -7,14 +7,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mealShop.dao.IMEventDao;
 import com.mealShop.dao.IMMemberDao;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class MMemberService {
 
-	@Autowired
 	IMMemberDao mdao;
 
 	public void getMember(HashMap<String, Object> paramMap) {
