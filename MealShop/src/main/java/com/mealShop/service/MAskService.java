@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mealShop.dao.IMAskDao;
+import com.mealShop.dao.IMEventDao;
+
+import lombok.AllArgsConstructor;
 
 
 @Service
+@AllArgsConstructor
 public class MAskService {
 
-	@Autowired
 	IMAskDao madao;
 
 	public void listMAsk(HashMap<String, Object> paramMap) {
