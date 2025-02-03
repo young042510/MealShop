@@ -2,7 +2,6 @@
  	
 <nav id="sideMenu">
 	<ul>
-		<!-- <li><p id="mypage"><a href="noticeList">공지</a></li> -->
 		<br>
 		<li><h3><a href="noticeList">공지&이벤트</a></h3></li>
 		<li id="menu"><a href="noticeList">공지사항</a></li>

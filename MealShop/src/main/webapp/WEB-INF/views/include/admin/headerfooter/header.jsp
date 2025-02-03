@@ -36,7 +36,7 @@
 	<!-- 로고 -->
 	<div id="logo">
 		<div>관리자 라운지</div>
-		<a href="adminProductList"><img src="images/MealZologo.png"></a>		
+		<a href="adminProductList"><img src="images/Mealogo.png"></a>		
 	</div>	
 	</header>
 	<div class="clear"></div>

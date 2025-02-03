@@ -67,7 +67,7 @@
 			</div>
 			<!-- 로고 -->
 			<div id="logo">
-				<a href="/?sub=y"><img src="images/MealZologo.png"></a>
+				<a href="/?sub=y"><img src="images/Mealogo.png"></a>
 			</div>
 	
 			<!-- menu -->

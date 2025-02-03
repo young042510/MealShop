@@ -26,7 +26,7 @@
 	</a>
 </span>&nbsp;&nbsp;
 <span class="f_title">사업자등록번호&nbsp;</span>:&nbsp;<span class="f_title2">456-4567-4567</span>&nbsp;&nbsp;
-<span class="f_title">개인정보책임자&nbsp;</span>:&nbsp;<span class="f_title2">밀조왕<a href="mailto:abc@mealzo.com" style="color:#4C4E50; text-decoration:none;">&nbsp;(abc@mealzo.com)</a></span><br>
+<span class="f_title">개인정보책임자&nbsp;</span>:&nbsp;<span class="f_title2">밀조왕<a href="mailto:abc@meal.com" style="color:#4C4E50; text-decoration:none;">&nbsp;(abc@mealzo.com)</a></span><br>
 <span class="f_title">호스팅서비스사업자&nbsp;</span>:&nbsp;<span class="f_title2">(주)가비아</span>&nbsp;&nbsp;
 <span class="f_title">주소&nbsp;</span>:&nbsp;<span class="f_title2">서울 서대문구 신촌로 141 위고인빌딩 1층</span>&nbsp;&nbsp;
 <br><span class="f_title">
