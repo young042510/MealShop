@@ -132,14 +132,14 @@ public class MProductController {
    //상단 카테고리별 상품 조회
    @RequestMapping("/productForm")
    public String productForm(HttpServletRequest request
-         , Model model
-         , @RequestParam(value = "sort", defaultValue = "recently") String sort
-         , @RequestParam(value = "idx", defaultValue = "0") Integer idx
-            , @RequestParam(value = "sub", required = false) String sub
-            , @RequestParam(value = "key", required = false) String requestKey
-            , @RequestParam(value = "page", required = false) Integer requestPage
-            , @ModelAttribute("key") String key
-            , @ModelAttribute("page") Integer page) {
+		   , Model model
+		   , @RequestParam(value = "sort", defaultValue = "recently") String sort
+		   , @RequestParam(value = "idx", defaultValue = "0") Integer idx
+		   , @RequestParam(value = "sub", required = false) String sub
+		   , @RequestParam(value = "key", required = false) String requestKey
+		   , @RequestParam(value = "page", required = false) Integer requestPage
+		   , @ModelAttribute("key") String key
+		   , @ModelAttribute("page") Integer page) {
       
       if ("y".equals(sub)) {key = ""; page = 1;}
       
@@ -147,8 +147,8 @@ public class MProductController {
       if (requestPage != null) {page = requestPage;}
       
       HashMap<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("key", key);
-        paramMap.put("cnt", 0);
+      paramMap.put("key", key);
+      paramMap.put("cnt", 0);
       
       String kind = request.getParameter("kind") != null ? request.getParameter("kind") : "";
       String bestyn = request.getParameter("bestyn") != null ? request.getParameter("bestyn") : "n";
@@ -156,11 +156,11 @@ public class MProductController {
       
       Paging paging = new Paging();
       paging.setPage(page);
-        paging.setTotalCount((int)paramMap.get("cnt"));      
-        model.addAttribute("paging", paging);
+      paging.setTotalCount((int)paramMap.get("cnt"));      
+      model.addAttribute("paging", paging);
         
-        paramMap.put("startNum", paging.getStartNum());
-        paramMap.put("endNum", paging.getEndNum());       
+      paramMap.put("startNum", paging.getStartNum());
+      paramMap.put("endNum", paging.getEndNum());       
       paramMap.put("kind", kind.isEmpty() ? "" : kind);
       paramMap.put("key", key.isEmpty() ? "" : key);
       paramMap.put("bestyn", "y".equals(bestyn) ? "y" : null);
@@ -210,13 +210,13 @@ public class MProductController {
       if (paramMap.get("ref_cursor") instanceof ArrayList) {productList = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");}
       
       model.addAttribute("mproductVoList", productList);
-       model.addAttribute("key", key);
-       model.addAttribute("idx", idx);
-       model.addAttribute("kind", kind);
-       model.addAttribute("bestyn", bestyn);
-       model.addAttribute("newyn", newyn);
-       model.addAttribute("sort", sort);
-
+      model.addAttribute("key", key);
+      model.addAttribute("idx", idx);
+      model.addAttribute("kind", kind);
+      model.addAttribute("bestyn", bestyn);
+      model.addAttribute("newyn", newyn);
+      model.addAttribute("sort", sort);
+      
       return "product/productKind";
    }
    
@@ -236,13 +236,13 @@ public class MProductController {
       productService.getProduct(paramMap);
       ArrayList<HashMap<String,Object>> mproductVOList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor");
       
-       HashMap<String,Object> resultMap = mproductVOList.get(0);
-       mav.addObject("mproductVO", resultMap);
+      HashMap<String,Object> resultMap = mproductVOList.get(0);
+      mav.addObject("mproductVO", resultMap);
        
-       paramMap.put("ref_cursor_Image1", null);
-       paramMap.put("ref_cursor_Image2", null);
+      paramMap.put("ref_cursor_Image1", null);
+      paramMap.put("ref_cursor_Image2", null);
        
-       productService.getImages(paramMap);
+      productService.getImages(paramMap);
        
       ArrayList<HashMap<String,Object>> image1List = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_Image1");
       ArrayList<HashMap<String,Object>> image2List = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_Image2");
@@ -275,29 +275,29 @@ public class MProductController {
       int reviewresult = (orderCnt > reviewCnt) ? 1 : -1;
       model.addAttribute("reviewresult", reviewresult);
       
-        mav.addObject("productorderList", productorderList);
+      mav.addObject("productorderList", productorderList);
     
-        if (loginUser != null) {paramMap.put("id", loginUser.get("ID"));}
+      if (loginUser != null) {paramMap.put("id", loginUser.get("ID"));}
         
-        paramMap.put("ref_cursor_zzim", null);
+      paramMap.put("ref_cursor_zzim", null);
         
-        zzimService.getlistZzim(paramMap);
+      zzimService.getlistZzim(paramMap);
         
-        ArrayList<HashMap<String,Object>> zzimList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_zzim");
+      ArrayList<HashMap<String,Object>> zzimList = (ArrayList<HashMap<String,Object>>)paramMap.get("ref_cursor_zzim");
 
-        model.addAttribute("result", zzimList.isEmpty() ? -1 : 1);
+      model.addAttribute("result", zzimList.isEmpty() ? -1 : 1);
 
-        paramMap.put("ref_cursor_zzimcnt", null);
+      paramMap.put("ref_cursor_zzimcnt", null);
         
       zzimService.getZimcount(paramMap);
       
       int zzim =Integer.parseInt(paramMap.get("ref_cursor_zzimcnt").toString());
       
       mav.addObject("zzimcount", zzim);     
-        mav.addObject("zzimList", zzimList);
-        mav.addObject("pseq", pseq);
+      mav.addObject("zzimList", zzimList);
+      mav.addObject("pseq", pseq);
         
-        return mav;
+      return mav;
    }
    
    //찜 등록
@@ -306,9 +306,7 @@ public class MProductController {
                             @RequestParam("pseq") int pseq) {
 
        ModelAndView mav = new ModelAndView();
-       
        HttpSession session = request.getSession();
-       
        HashMap<String, Object> paramMap = new HashMap<>();
 
        session.setAttribute("redirectUrl", "productDetail?pseq=" + pseq);
@@ -316,17 +314,14 @@ public class MProductController {
 
        if (loginUser == null || loginUser.get("ID") == null) {
           mav.addObject("message", "로그인 후 이용 가능합니다.");
-           mav.setViewName("member/login");
-           return mav;
-           
+          mav.setViewName("member/login");
+          return mav;
        }else {
           paramMap.put("id", loginUser.get("ID"));
           paramMap.put("pseq", pseq);
-          zzimService.zzimInsert(paramMap);     
-          
+          zzimService.zzimInsert(paramMap);  
           String redirectPath = "/zzim".equals(request.getRequestURI()) ? "redirect:/productDetail?pseq=" + pseq : "redirect:/zzimList";          
           mav.setViewName(redirectPath);
-          
           return mav;         
       }   
    }
@@ -338,31 +333,28 @@ public class MProductController {
       
       ModelAndView mav = new ModelAndView("redirect:/productDetail");      
       HashMap<String , Object> loginUser = getLoginUser(request); 
-      
       HashMap<String, Object> paramMap = new HashMap<>();
+      
       paramMap.put("pseq", pseq);
       zzimService.zzimDelete(paramMap);
-      
       mav.addObject("pseq", pseq);
-      
       return mav;
    }
 
    //찜 리스트
    @GetMapping("/zzimList")
    public ModelAndView zzimList(HttpServletRequest request
-         , @ModelAttribute("loginUser") HashMap<String, Object> loginUser
          , @RequestParam(value = "sub", required = false) String sub
          , @RequestParam(value = "page", required = false) Integer requestPage) {
       
       ModelAndView mav = new ModelAndView();
       HttpSession session = request.getSession();
       HashMap<String, Object> paramMap = new HashMap<>();
+      HashMap<String, Object> loginUser = getLoginUser(request);
       
       session.setAttribute("redirectUrl", "zzimList");
 
-      if (loginUser == null || loginUser.get("ID") == null) {
-         
+      if (loginUser == null || loginUser.get("ID") == null) {       
          mav.addObject("msg", "로그인 후 이용 가능합니다.");
          mav.setViewName("member/login");
          return mav;   
@@ -378,27 +370,27 @@ public class MProductController {
        }else {session.removeAttribute("page");}
       
       Paging paging = new Paging();
-       paging.setPage(page);
-       paramMap.put("cnt", 0);
-       
-       zzimService.getAllCountZzim(paramMap);
-       
-       int cnt = Integer.parseInt(paramMap.get("cnt").toString());
-       paging.setTotalCount(cnt);
-       paging.paging();
-       
-       paramMap.put("startNum", paging.getStartNum());
-       paramMap.put("endNum", paging.getEndNum());
-       
-       paramMap.put("id", loginUser.get("ID"));
-       paramMap.put("ref_cursor", null);
-       
-       zzimService.listZzim(paramMap);
-       
-       ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-       
-       mav.addObject("paging",paging);
-       mav.addObject("zzimList", list);
+      paging.setPage(page);
+      paramMap.put("cnt", 0);
+      
+      zzimService.getAllCountZzim(paramMap);
+      
+      int cnt = Integer.parseInt(paramMap.get("cnt").toString());
+      paging.setTotalCount(cnt);
+      paging.paging();
+      
+      paramMap.put("startNum", paging.getStartNum());
+      paramMap.put("endNum", paging.getEndNum());
+      
+      paramMap.put("id", loginUser.get("ID"));
+      paramMap.put("ref_cursor", null);
+      
+      zzimService.listZzim(paramMap);
+      
+      ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+      
+      mav.addObject("paging",paging);
+      mav.addObject("zzimList", list);
       mav.setViewName("mypage/zzimList");
       return mav;   
    }
