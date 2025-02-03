@@ -3,7 +3,6 @@
 
 <mapper namespace="com.mealShop.dao.IMQnaDao"> 
 	<resultMap type="java.util.HashMap" id="qnaMap"/>
-		<resultMap type="java.util.HashMap" id="qnaMap"/>
 	
 	<select id="listQna"  statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL  listQna_m(
