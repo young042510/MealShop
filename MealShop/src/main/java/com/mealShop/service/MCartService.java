@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mealShop.dao.IMCartDao;
+import com.mealShop.dao.IMEventDao;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Service
+@AllArgsConstructor
 public class MCartService {
 
-	@Autowired
 	IMCartDao cdao;
 
 	@Transactional(rollbackFor = Exception.class)
