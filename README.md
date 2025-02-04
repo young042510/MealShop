@@ -13,4 +13,4 @@ Web Server : Java(JDK 21), Spring boot, Gradle, MyBatis,
 DBMS : Oracle DB
 개발환경 : STS4 (Spring Tool Suite 4), Oracle SQL Developer
 
-### [기능명세서] (링크)
+### [기능명세서] (https://github.com/young042510/MealShop/wiki/%EA%B8%B0%EB%8A%A5%EB%AA%85%EC%84%B8)
