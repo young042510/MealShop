@@ -127,7 +127,7 @@ public class MMemberController {
 	}
 	
 	
-	@GetMapping("/joinForm")
+	@PostMapping("/joinForm")
 	public String join_form( ) {
 		return "member/join";
 	}
