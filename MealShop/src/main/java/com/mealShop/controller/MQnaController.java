@@ -280,7 +280,7 @@ public class MQnaController {
 		return mav;
 	}
 	
-	@GetMapping("/nmqnaView")
+	@PostMapping("/nmqnaView")
 	public ModelAndView nmqnaView(
 			@RequestParam(value="nqseq",  required=false) int nqseq ,
 			@RequestParam("pwd") String pwd ,
