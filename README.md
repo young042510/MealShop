@@ -7,3 +7,8 @@
 송** (팀원) -
 
 ### 🛠기술 스택
+
+Web Front : HTML5 , CSS, JavaScript, jQuery
+Web Server : Java(JDK 21), Spring boot, Gradle, MyBatis,
+DBMS : Oracle DB
+개발환경 : STS4 (Spring Tool Suite 4), Oracle SQL Developer
