@@ -21,3 +21,7 @@ DBMS : Oracle DB
 
 
 ## [기능명세서](https://github.com/young042510/MealShop/wiki/%EA%B8%B0%EB%8A%A5%EB%AA%85%EC%84%B8)
+
+## 영상
+
+## 데이터베이스
