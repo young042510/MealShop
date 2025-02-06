@@ -9,10 +9,9 @@
 <h1>상품 리뷰 List </h1>
 <form name="frm" method="post" >
 	<table>
-		<tr><td width="642">상품 리뷰 &nbsp;<input type="text" name="key" value="${key }">&nbsp;
+		<tr><td width="642">상품명 &nbsp;<input type="text" name="key" value="${key }">&nbsp;
 			<input class="btn" type="button" name="btn_search" value="검색" onclick="go_search('adminReviewForm');">&nbsp;
 			<input class="btn" type="button" name="btn_total" value="전체보기" onclick="go_total('adminReviewForm');">&nbsp;
-			<input class="btn" type="button" name="btn_write" value="음" onclick="go_wrt();">&nbsp;</td>
 		</tr>
 	</table>
 </form>
