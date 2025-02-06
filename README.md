@@ -25,3 +25,4 @@ DBMS : Oracle DB
 ## 영상
 
 ## 데이터베이스
+![밀키트](https://github.com/user-attachments/assets/54c1e409-5049-45a4-ba36-f45329260267)
