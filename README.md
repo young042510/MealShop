@@ -25,7 +25,8 @@ DBMS : Oracle DB
 ## 영상
 
 상품 상세 조회, 정렬
-(추후 등록)
+
+https://github.com/user-attachments/assets/e1ed9d83-f7c3-43ba-b392-8a3d9578bb77
 
 상품 찜하기
 
@@ -40,7 +41,8 @@ https://github.com/user-attachments/assets/d97b6440-02de-4af7-a0a4-e94a61edb268
 https://github.com/user-attachments/assets/9eba2954-8906-4e03-a960-656f907d4198
 
 관리자 상품관리
-(추후 등록)
+
+https://github.com/user-attachments/assets/292cbdc5-a828-4c72-a89b-42e7cc274264
 
 관리자 주문/배송관리
 
