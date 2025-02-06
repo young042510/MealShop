@@ -24,6 +24,56 @@ DBMS : Oracle DB
 
 ## 영상
 
+상품 상세 조회, 정렬
+(추후 등록)
+
+상품 찜하기
+
+https://github.com/user-attachments/assets/63b4e8e6-4067-4dd0-9cf4-b4d0de6b4481
+
+상품 리뷰
+
+https://github.com/user-attachments/assets/d97b6440-02de-4af7-a0a4-e94a61edb268
+
+관리자 로그인
+
+https://github.com/user-attachments/assets/9eba2954-8906-4e03-a960-656f907d4198
+
+관리자 상품관리
+(추후 등록)
+
+관리자 주문/배송관리
+
+https://github.com/user-attachments/assets/da6b235d-33b5-4cfd-b4ba-83047b8d27a2
+
+관리자 회원관리
+
+https://github.com/user-attachments/assets/62f12262-1c8f-42b3-aa6f-e3886ea7a561
+
+관리자 Q&A 관리
+
+https://github.com/user-attachments/assets/da58ffb6-9530-4a17-a971-64334c46a82a
+
+관리자 상품문의
+
+https://github.com/user-attachments/assets/e235b1e9-47cc-4f92-809c-4eeb2f079bd9
+
+관리자 상품후기
+
+https://github.com/user-attachments/assets/e8962174-1399-4d38-b24e-0751316fab88
+
+관리자 비회원관리
+
+https://github.com/user-attachments/assets/70bf5c06-7f4c-4774-853c-6ddc7352d394
+
+관리자 공지사항
+
+https://github.com/user-attachments/assets/5d95bd1b-3b0c-4309-b5b5-57ba95d28c41
+
+관리자 이벤트
+
+https://github.com/user-attachments/assets/ab3ae342-596e-42ee-a993-d8e33b00feae
+
 ## 데이터베이스
 ![밀키트 erd](https://github.com/user-attachments/assets/433f728d-7cce-4ca2-bc30-bdb93636389a)
 
