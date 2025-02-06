@@ -25,4 +25,5 @@ DBMS : Oracle DB
 ## 영상
 
 ## 데이터베이스
-![밀키트](https://github.com/user-attachments/assets/54c1e409-5049-45a4-ba36-f45329260267)
+![밀키트 erd](https://github.com/user-attachments/assets/433f728d-7cce-4ca2-bc30-bdb93636389a)
+
