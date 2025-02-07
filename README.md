@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/ab3ae342-596e-42ee-a993-d8e33b00feae
 ### 상품문의
 
 
-https://github.com/young042510/MealShop/issues/new?template=Blank+issue
+[https://github.com/young042510/MealShop/issues/new?template=Blank+issue](https://github.com/user-attachments/assets/7613b446-8093-40f9-b0ab-1cd90593f33b)
 
 
 ### Q&A
