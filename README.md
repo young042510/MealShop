@@ -96,6 +96,6 @@ https://github.com/user-attachments/assets/d25c30f6-e6b6-432f-9c36-717bfa17dc76
 
 https://github.com/user-attachments/assets/41246430-1189-4e5c-b5d6-5754119866d2
 
-## 데이터베이스
+## 📜 데이터베이스
 ![밀키트 erd](https://github.com/user-attachments/assets/433f728d-7cce-4ca2-bc30-bdb93636389a)
 
