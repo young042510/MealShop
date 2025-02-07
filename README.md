@@ -76,6 +76,26 @@ https://github.com/user-attachments/assets/5d95bd1b-3b0c-4309-b5b5-57ba95d28c41
 
 https://github.com/user-attachments/assets/ab3ae342-596e-42ee-a993-d8e33b00feae
 
+상품문의
+
+https://github.com/young042510/MealShop/issues/new?template=Blank+issue
+
+Q&A
+
+https://github.com/user-attachments/assets/b6372f44-662f-4847-a807-820457f192be
+
+주문
+
+https://github.com/user-attachments/assets/fd2a0aa7-3424-44cf-ab0d-91428812bbd9
+
+장바구니
+
+https://github.com/user-attachments/assets/d25c30f6-e6b6-432f-9c36-717bfa17dc76
+
+회원가입 및 로그인
+
+https://github.com/user-attachments/assets/41246430-1189-4e5c-b5d6-5754119866d2
+
 ## 데이터베이스
 ![밀키트 erd](https://github.com/user-attachments/assets/433f728d-7cce-4ca2-bc30-bdb93636389a)
 
