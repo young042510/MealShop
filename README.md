@@ -30,17 +30,22 @@ DBMS : Oracle DB
 
 ## 📹 영상
 
+## 📹 영상
+
 |<small>회원가입 및 로그인</small>|<small>장바구니<small>|<small>아이디찾기/비밀번호찾기</small>|
 |:-:|:-:|:-:|
-|![003](https://github.com/user-attachments/assets/41246430-1189-4e5c-b5d6-5754119866d2)|![004](https://github.com/user-attachments/assets/d25c30f6-e6b6-432f-9c36-717bfa17dc76)|![005](https://github.com/user-attachments/assets/fd2a0aa7-3424-44cf-ab0d-91428812bbd9)|
+|https://github.com/user-attachments/assets/41246430-1189-4e5c-b5d6-5754119866d2|[004](https://github.com/user-attachments/assets/d25c30f6-e6b6-432f-9c36-717bfa17dc76)|[005](https://github.com/user-attachments/assets/fd2a0aa7-3424-44cf-ab0d-91428812bbd9)|
 |<small><b>Q&A</b></small>|<small><b>상품문의</b></small>|<small><b>상품 상세 조회, 정렬</b></small>|
-|![006](https://github.com/user-attachments/assets/b6372f44-662f-4847-a807-820457f192be)|![007](https://github.com/user-attachments/assets/7613b446-8093-40f9-b0ab-1cd90593f33b)|![008](https://github.com/user-attachments/assets/e1ed9d83-f7c3-43ba-b392-8a3d9578bb77)|
+|[006](https://github.com/user-attachments/assets/b6372f44-662f-4847-a807-820457f192be)|[007](https://github.com/user-attachments/assets/7613b446-8093-40f9-b0ab-1cd90593f33b)|[008](https://github.com/user-attachments/assets/e1ed9d83-f7c3-43ba-b392-8a3d9578bb77)|
 |<small><b>관리자 이벤트</b></small>|<small><b>관리자 공지사항</b></small>|<small><b>관리자 비회원관리</b></small>|
-|![009](https://github.com/user-attachments/assets/ab3ae342-596e-42ee-a993-d8e33b00feae)|![010](https://github.com/user-attachments/assets/5d95bd1b-3b0c-4309-b5b5-57ba95d28c41)|![011](https://github.com/user-attachments/assets/70bf5c06-7f4c-4774-853c-6ddc7352d394)|
+|[009](https://github.com/user-attachments/assets/ab3ae342-596e-42ee-a993-d8e33b00feae)|[010](https://github.com/user-attachments/assets/5d95bd1b-3b0c-4309-b5b5-57ba95d28c41)|[011](https://github.com/user-attachments/assets/70bf5c06-7f4c-4774-853c-6ddc7352d394)|
 |<small><b>상품 찜하기</b></small>|<small><b>상품 리뷰</b></small>|<small><b>관리자 로그인</b></small>|
-|![012](https://github.com/user-attachments/assets/63b4e8e6-4067-4dd0-9cf4-b4d0de6b4481)|![013](https://github.com/user-attachments/assets/d97b6440-02de-4af7-a0a4-e94a61edb268)|![014](https://github.com/user-attachments/assets/9eba2954-8906-4e03-a960-656f907d4198)|
+|[013](https://github.com/user-attachments/assets/63b4e8e6-4067-4dd0-9cf4-b4d0de6b4481)|[013](https://github.com/user-attachments/assets/d97b6440-02de-4af7-a0a4-e94a61edb268)|[014](https://github.com/user-attachments/assets/9eba2954-8906-4e03-a960-656f907d4198)|
 |<small><b>관리자 상품관리</b></small>|<small><b>관리자 주문/배송관리</b></small>|<small><b>관리자 회원관리</b></small>
-|![015](https://github.com/user-attachments/assets/292cbdc5-a828-4c72-a89b-42e7cc274264)|![016](https://github.com/user-attachments/assets/da6b235d-33b5-4cfd-b4ba-83047b8d27a2)|![017](https://github.com/user-attachments/assets/62f12262-1c8f-42b3-aa6f-e3886ea7a561)|
+|[015](https://github.com/user-attachments/assets/292cbdc5-a828-4c72-a89b-42e7cc274264)|[016](https://github.com/user-attachments/assets/da6b235d-33b5-4cfd-b4ba-83047b8d27a2)|[017](https://github.com/user-attachments/assets/62f12262-1c8f-42b3-aa6f-e3886ea7a561)|
+
+
+
 
 
 
