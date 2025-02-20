@@ -28,6 +28,6 @@ DBMS : Oracle DB
 ## 📜 [데이터베이스 ](https://github.com/young042510/MealShop/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)
 
 
-## 📹 [시연영상] (https://github.com/young042510/MealShop/wiki/%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81)
+## 📹 [시연영상](https://github.com/young042510/MealShop/wiki/%EC%8B%9C%EC%97%B0%EC%98%81%EC%83%81)
 
 
